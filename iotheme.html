@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{Title}{block:PostTitle} &#8212; {PostTitle}{/block:PostTitle}</title> 
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}
+<meta name="description" content="{MetaDescription}" />
+{/block:Description}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!-- Options -->
+
+<meta name="if:Show Navigation" content="1"/>
+<meta name="if:Alternate Header Layout" content="0"/>
+<meta name="if:Show Description" content="0"/>
+<meta name="if:Show Archive Navigation Link" content="1"/>
+<meta name="if:Wide Images" content="1"/>
+<meta name="if:Photoset Layout" content="0"/>
+<meta name="if:Show Post Tags" content="1"/>
+<meta name="if:Show Post Notes" content="1"/>
+<meta name="if:Show Copyright" content="0"/>
+<meta name="if:Infinite Scroll" content="0"/>
+
+<meta name="color:Header Background" content="#fff"/>
+<meta name="color:Title Text" content="#333333"/>
+<meta name="color:Header Text" content="#333333"/>
+<meta name="color:Header Link" content="#333333"/>
+<meta name="color:Header Social" content="#333333"/>
+<meta name="image:Poster" content=""/>
+
+<meta name="color:Content Background" content="#fff"/>
+
+<meta name="color:Body Text" content="#333333"/>
+<meta name="color:Link Text" content="#333333"/>
+<meta name="color:Link Hover" content="#333333"/>
+<meta name="color:Link Active" content="#333333"/>
+<meta name="color:Secondary Text" content="#888888"/>
+
+
+<meta name="text:TypeKit ID" content=""/>
+
+<meta name='text:Twitter Name' content='' />
+<meta name='text:Facebook Name' content='' />
+<meta name="text:Facebook ID" content="">
+<meta name="text:Google Plus ID" content="">
+
+<meta name="text:Contact URL" content="">
+<meta name="text:Footer Ad Link" content="">
+<meta name="text:Footer Ad Content" content="">
+
+<meta name="text:Title Font" content="Avenir-Heavy, HelveticaNeue-Medium">
+<meta name="text:Header Font" content="">
+<meta name="text:Body Font" content="">
+<meta name="text:Strong Font" content="Avenir-Medium, HelveticaNeue-Medium">
+
+
+
+
+<meta name='text:Google Analytics Id' content='' />
+<meta name='text:Google Analytics Domain' content='' />
+<meta name='text:Gauges Analytics' content='' />
+
+<!-- Scripts -->
+
+	<script src="http://static.tumblr.com/4kpnlef/Pttmhz2ap/jquery-1.9.1.min.js"></script>
+
+	{block:IfInfiniteScroll}
+	<!-- Infinite Scroll -->
+	<script type="text/javascript" src="http://static.tumblr.com/rsdylxf/v40mu99v6/infinitescrolling.js" ></script>
+	{/block:IfInfiniteScroll}
+
+	{block:IfTypeKitID}
+	<script type="text/javascript" src="//use.typekit.net/{text:TypeKit ID}.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	{/block:IfTypeKitID}
+
+	<!-- Media resizing -->    
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Make desktop tumblr video stretch to 100%
+			$('.tumblr_video_container').css({ 'width' : '100%', 'height' : '100%' });
+			// Resize tumblr video on mobile
+			$('.iphone-video a').css({ 'width' : '100%', 'height' : '200px' });
+	});        
+
+		//Make Spotify the right size and responsive
+	  $(document).ready(function(){
+		  $('.mobile-spotify iframe').css('height', '80px');
+			$('.mobile-spotify iframe').css('width', '290px'); 
+			$('iframe[src*="embed.spotify.com"]').each( function() {
+				$(this).css('width',$(this).parent(1).css('width'));
+				$(this).css('height', '82');
+				$(this).attr('src',$(this).attr('src'));
+			});
+		});
+		$(window).resize(function() {
+			$('iframe[src*="embed.spotify.com"]').each( function() {
+				$(this).css('width',$(this).parent(1).css('width'));
+				$(this).css('height', '82');
+				$(this).attr('src',$(this).attr('src'));
+			});
+		});
+
+		//disable safari active states
+		//document.addEventListener("touchstart", function() {},false);
+
+  </script>
+
+<!-- Twitter, need to put in twitter text bits -->
+
+{block:IfFacebookID}
+<meta property="fb:admin" content="{text:Facebook ID}">
+<meta property="og:site_name" content="{Title}">
+<meta property="og:image" content="{PortraitURL-48}">
+{/block:IfFacebookID}
+
+{block:IndexPage} 
+<meta property="og:type" content="blog">
+<meta property="og:description" content="{MetaDescription}">
+{/block:IndexPage}   
+
+{block:PermalinkPage}
+<meta property="og:type" content="article">
+<meta property="og:description" content="{block:PostSummary}{PostSummary}{/block:PostSummary}">
+
+<meta name="twitter:url" content="{Permalink}"/>
+<meta name="twitter:site" content="@duncan">
+<meta name="twitter:creator" content="@duncan">
+
+		{block:Posts}
+			{block:Text}
+				<meta name="twitter:card" content="summary">
+				{block:Title}
+				<meta name="twitter:title" content="{PlaintextTitle}"/>
+				<meta property="og:title" content="{PlaintextTitle}"/>
+				{/block:Title}
+				<meta name="twitter:description" content="{PlaintextBody}"/>
+				<meta property="og:description" content="{PlaintextBody}"/>
+				<meta name="twitter:image" content="{PortraitURL-64}"/>
+			{/block:Text}
+
+			{block:Photo}
+				<meta name="twitter:card" content="photo">
+
+				<meta name="twitter:description" content="{PlaintextBody}"/>
+				<meta name="og:title" content="{PlaintextCaption}">
+				<meta property="og:image" content="{PhotoURL-500}"/>
+				<meta name="twitter:image" content="{PhotoURL-500}"/>
+				{block:Caption}
+				<meta name="twitter:description" content="{PlaintextCaption}"/>
+				<meta property="og:description" content="{PlaintextCaption}"/>
+				{/block:Caption}
+			{/block:Photo}
+
+			{block:Photoset}
+				<meta name="twitter:card" content="photo">
+				{block:Photos}
+				<meta name="twitter:image" content="{PhotoURL-500}"/>
+				<meta property="og:image" content="{PhotoURL-500}"/>
+				{/block:Photos}
+				<meta name="og:title" content="{PlaintextCaption}">
+				{block:Caption}<meta name="twitter:description" content="{PlaintextBody}"/>{/block:Caption}
+			{/block:Photoset}
+
+			{block:Quote}
+				<meta name="twitter:card" content="summary">
+				<meta name="twitter:title" content="{PlaintextQuote}"/>
+				<meta name="twitter:description" content="{PlaintextSource}"/>
+				<meta name="twitter:image" content="{PortraitURL-64}"/>
+				 <meta property="og:title" content="{PlaintextQuote}"/>
+				 <meta property="og:description" content="{PlaintextSource}"/>
+
+			{/block:Quote}
+
+			{block:Link}
+				<meta name="twitter:card" content="summary">
+				<meta name="twitter:title" content="{PlaintextName}"/>
+				<meta property="og:title" content="{PlaintextName}"/>
+
+				<meta name="twitter:description" content="{PlaintextDescription}"/>
+				<meta property="og:description" content="{PlaintextDescription}"/>
+				<meta name="twitter:image" content="{PortraitURL-64}"/>
+				<meta property="og:image" content="{PortraitURL-64}"/>
+			{/block:Link}
+
+			{block:Chat}
+				<meta name="twitter:card" content="summary">
+				<meta name="twitter:title" content="{PlaintextTitle}"/>
+				<meta name="twitter:description" content="{block:Lines}{block:Label}{Label}: {/block:Label}{Line} &bull; {/block:Lines}"/>
+				<meta name="twitter:image" content="{PortraitURL-64}"/>
+			{/block:Chat}
+
+			{block:Audio}
+				<meta name="twitter:card" content="summary">
+				<meta name="twitter:title" content="{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/>
+				<meta name="twitter:description" content="{PlaintextCaption}"/>
+				{block:AlbumArt}<meta name="twitter:image" content="{AlbumArtURL}"/>{/block:AlbumArt}
+			{/block:Audio}
+
+			{block:Video}
+				<meta name="twitter:card" content="summary">
+				<meta name="twitter:title" content="{PlaintextTitle}"/>
+				{block:Caption}<meta name="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}
+			{/block:Video}
+
+			{block:Answer}
+				<meta name="twitter:card" content="summary">
+				<meta name="twitter:title" content="{PlaintextQuestion}"/>
+				<meta name="twitter:description" content="{PlaintextAnswer}"/>
+				<meta name="twitter:image" content="{PortraitURL-64}"/>
+			{/block:Answer}
+
+		{/block:Posts}
+
+{/block:PermalinkPage}
+
+<!-- Style Sheet -->
+
+<style>
+body {
+  {block:IfBodyFont}
+  font-family: {text:Body Font}, HelveticaNeue-Light, Helvetica-Light, Helvetica, Arial, sans-serif;
+  {/block:IfBodyFont}
+  {block:IfNotBodyFont}
+  font-family: Avenir-Light, Calibri, HelveticaNeue-Light, Helvetica-Light, Helvetica, Arial, sans-serif;
+  {/block:IfNotBodyFont}
+  /* max-width: 992px; */
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  background-color: {color:Content Background};
+}
+
+h1,h2,h3,h4,h5,h6 {
+  {block:IfHeaderFont}
+  font-family: {text:Header Font}, HelveticaNeue-Medium, Helvetica-Bold, Arial-Bold, sans-serif;
+  {/block:IfHeaderFont}
+  {block:IfNotHeaderFont}
+  font-family: Avenir-Heavy, "Calibri Bold", HelveticaNeue-Medium, Helvetica-Bold, Arial-Bold, sans-serif;
+  {/block:IfNotHeaderFont}
+
+}
+
+p, blockquote, ul, ol {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+blockquote p {
+  font-size: 1em;   
+}
+
+strong {
+  {block:IfStrongFont}
+  font-family: {text:Strong Font}, HelveticaNeue-Medium, Helvetica-Bold, Arial-Bold, sans-serif;
+  {/block:IfStrongFont}
+  {block:IfNotStrongFont}
+  font-family: Avenir-Heavy, "Calibri Bold", HelveticaNeue-Medium, Helvetica-Bold, Arial-Bold, sans-serif;
+  {/block:IfNotStrongFont}
+}
+
+/* PAGE HEADER */
+
+body>header {
+	background: {color:Header Background};
+	padding-top: 25px;
+	padding-bottom: 25px;
+	{block:IfPosterImage}
+	background:  url('{image:Poster}');
+	{/block:IfPosterImage}
+}
+
+body>header div.container {
+  max-width: 530px;
+
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+} 
+
+/*
+@media (min-width: 768px) {
+  body>header.container {
+	text-align: left;    
+  }
+}
+*/
+body>header .logo {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body>header ul {
+  margin: 0;
+  padding: 0;
+}
+
+body>header li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+body>header li:first-child {
+  margin-left: 0px;   
+}
+
+body>heaer li:last-child {
+  margin-left: 0px;
+}
+
+body>header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body>header h1 a {
+  color: {color:Title Text};
+}
+
+body>header h1 a:hover {
+  color: {color:Title Text};
+  text-decoration: none;
+}
+
+.nav-icon {
+  font-size: 1.3em;
+}
+.nav-label {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav-icon {
+	font-size: 1em;
+  }
+  .nav-label {
+	display: inline-block;
+  }
+}
+
+body>header .tagline {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  body>header .tagline {
+	display: block;
+	text-transform: uppercase;
+  }
+}
+
+body>header .portrait {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 96px;
+  height: 96px;
+  border-radius: 48px;
+  -webkit-border-radius: 48px;
+  -moz-border-radius: 48px;
+}
+
+body>header .blog-description {
+  max-width: 400px;
+  margin-top: 12px;
+  color: {color:Header Text};
+  font-size: 0.9em;
+
+}
+
+body>header .blog-description a {
+	color: {color:Header Link};
+}
+
+body>header .social-links a {
+	color: {color:Header Social};
+	text-decoration: none;
+}
+
+body>header .social-links li {
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+@media (min-width: 768px) {
+  body>header div.container {
+	  max-width: 100%;
+	width: 740px;
+  }
+  body>header .portrait {
+	float: left; 
+	margin-right: 24px
+  }
+  body>header .logo {
+	max-width: 740px;
+  }
+  body>header .logo>h1 {
+	padding-top: 42px;
+	padding-bottom: 12px;
+	text-align: left;
+	float: left;
+  }
+  body>header .blog-description {
+	height: 96px;
+	padding-top: 18px;
+	text-align: right;
+	float: right;
+	width: 350px;
+  }
+
+  body>header .social-links {
+	  clear: both;
+	  float: right;
+	  text-align: right;
+	  font-size: 1.3em;
+  }
+
+  body>header .social-links li:last-child {
+	  margin-right: 0px;
+  }
+}
+
+/* PAGE FOOTER */
+
+body>footer.container {
+  max-width: 530px;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+} 
+
+body>footer .copyright {
+  font-size: 0.8em;
+}
+
+body>footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+body>footer li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-transform: uppercase;
+}
+
+body>footer li .nav-icon {
+
+}
+
+body>footer .colophon {
+  font-size: 0.8em;
+}
+
+.adblock {
+  padding: 10px;
+  margin-top: 18px;
+  margin-bottom: 24px;
+  font-size: 0.8em;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+a.ad {
+  color: #999;
+}
+
+a.ad:hover {
+  color: #666;
+  text-decoration: none;
+}
+
+.adblock img {
+  margin-bottom: 8px;
+}
+
+
+/* ALL POSTS */
+
+article.post {
+  margin-top: 60px;
+  margin-bottom: 90px;
+}
+
+
+article.post>header h1 {
+/*   text-align: center; */
+  text-transform: uppercase;
+  font-size: 1.4em;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+article.post>header .meta {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+article.post>p {
+  font-size: 1.1em;
+}
+
+
+article.post>footer {
+  text-align: center;
+  max-width: 530px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.post-footer-meta ul {
+  margin-left: 0;
+  margin-right: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.post-footer-meta li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.post-footer-meta li:first-child {
+  margin-left: 0px;
+}
+.post-footer-meta li:last-child {
+  margin-right: 0px;
+}
+
+@media (min-width: 768px) {
+  .post-footer-date {
+	text-align: left;    
+  }
+  .post-footer-meta {
+	text-align: right;
+  }
+}
+
+
+/* TEXT POST */
+
+article.post.text>header  {
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  article.post.text>header h1 {
+	text-align: left;
+  }
+}
+
+
+article.post.text>p, article.post.text>blockquote {
+
+}
+article.post.text>p strong {
+
+}
+
+
+article.post.text>p>img {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+article.post.text>p.img-holder img {
+  max-width: 400px;  
+}
+
+/* LINK POSTS */
+
+article.post.link>header {
+  margin-bottom: 8px;    
+}
+
+
+artcile.post.link>header {
+  margin-bottom: 0px;
+}
+
+article.post.link>header>h1 {
+  text-align: left;
+  font-size: 16px; 
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+article.post.link>header>h1 i {
+  float: right;
+  margin-left: 18px;
+}
+
+article.post.link {
+  color: #888;
+}
+
+
+/* PHOTO POSTS */
+
+.photo-holder, .img-holder  {
+  max-width: 740px;
+  max-height: 740px;
+  margin-left: -65px; 
+  margin-right: -65px;
+}
+
+.photo-holder img {
+	border-radius: 10px;
+}
+
+@media (min-width: 640px) {
+  .photo-holder, .img-holder {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 24px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .photo-holder {
+	margin-right: auto;
+	margin-left: auto;
+  }
+}
+
+.photo-caption, .video-caption {
+  margin-top: 16px;
+  font-size: 1.1em;
+}
+
+/* PHOTOSET POSTS */
+
+article.post.photoset>header {
+
+}
+
+.photoset-holder {
+  margin-left: -50px;
+  margin-right: -50px;
+
+ /* max-width: 700px;
+  width: 100%; */
+  /*
+  margin-left: -15px;
+  margin-right: -15px;
+  */
+  /*
+  max-width: 740px;
+
+  margin-left: -65px; 
+  margin-right: -65px;
+  */
+
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .photoset-holder {
+	max-width: 740px;
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+}
+
+
+/* ANSWER POSTS */
+
+article.post>header h1.q {
+  text-align: left;
+  text-transform: none;
+  font-size: 1.5em;
+  margin-top: 0px;
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 8px;
+  line-height: 1.2em;
+}
+
+/* VIDEO POSTS */
+
+
+.video-holder  {
+  max-width: 700px;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.video-holder iframe,
+.video-holder object,
+.video-holder embed {
+	width: 100%;
+
+}
+
+/* QUOTE POSTS */
+
+.quote-short, .quote-medium, .quote-long, .quote-source {
+  text-align: left;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+.quote-source {
+  text-align: right;
+}
+
+.quote-short {
+  font-size: 1.5em;
+}
+
+.quote-medium {
+  font-size: 1.3em;
+}
+
+.quote-long {
+  font-size: 1.2em;
+}
+
+
+
+</style>
+
+
+
+<!-- End header -->
+
+</head>
+
+<body id="page">
+
+<header>
+  <div class="container">
+  {block:IfShowNavigation}
+  <nav>
+	<ul>
+	  <li><a href="http://duncandavidson.com"><i class="nav-icon icon-home"></i> <span class="nav-label">Home</span></a></li>
+	  <li><a href="/rss"><i class="nav-icon icon-rss"></i> <span class="nav-label">Feed</span></a></li>
+	</ul>
+  </nav>
+  {/block:IfShowNavigation}
+
+
+  <div class="logo">
+	<a href="/"><img class="portrait" src="{PortraitURL-128}" width="96" height="96"></a>
+	<h1><a href="/">{Title}</a></h1>
+
+	{block:IfShowDescription}
+	<p class="blog-description">{Description}</p>
+	{/block:IfShowDescription}
+
+
+	<ul class="social-links">
+		{block:IfContactURL}
+		  <li><a href="{text:Contact URL}"><i class="nav-icon fa fa-comments fa-fw fa-lg"></i></a></li>
+		{/block:IfContactURL}
+		{block:IfTwitterName}
+			<li><a href="http://twitter.com/{text:Twitter Name}"><i class="nav-icon fa fa-twitter fa-fw fa-lg"></i></a></li>
+		{/block:IfTwitterName}
+		{block:IfFacebookID}
+<li><a href="http://facebook.com/{text:Facebook ID}"><i class="nav-icon fa fa-facebook-square fa-fw fa-lg"></i></a></li>
+{/block:IfFacebookID}
+{block:IfGooglePlusID}
+<li><a href="http://plus.google.com/{text:Google Plus ID}?rel=author"><i class="nav-icon fa fa-google-plus-square fa-fw fa-lg"></i></a></li>
+{/block:IfGooglePlusID}
+
+	</ul>
+
+  </div> 
+  </header>
+</div> <!-- container -->
+
+
+<div id="content">
+
+{block:Posts}
+
+  <article class="post {PostType} container">
+
+	{block:Text}
+	{block:Title}<header><h1><a href="{Permalink}" {Target}>{Title}</a></h1></header>{/block:Title}
+	{/block:Text}
+
+	{block:Link}
+	<header>
+	<h1><a href="{URL}" {Target}><i class="fa fa-external-link"></i> {Name}</a></h1>
+	</header>
+	{/block:Link}
+
+	{block:Answer} 
+	<header>
+	<h1 class="q">{Question}</h1> 
+	</header>
+	{/block:Answer}
+
+	{block:Text}
+	{Body}
+	{/block:Text}
+
+	{block:Quote}
+	<div class="quote-{Length}">{Quote}</div>
+	{block:Source} 
+	<div class="quote-source">— {Source}</div>
+	{/block:Source} 
+	{/block:Quote}
+
+	{block:Link}
+	{block:Description}
+	{Description}
+	{/block:Description}
+	{/block:Link}
+
+	{block:Photo}
+	<div class="photo-holder">
+	{LinkOpenTag}
+	<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="img-responsive">
+	{LinkCloseTag}
+	</div>
+	{block:Caption}
+	<div class="photo-caption">{Caption}</div>
+	{/block:Caption}
+	{/block:Photo}
+
+	{block:Photoset}
+	<div class="photoset-holder">
+
+  <div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+	{block:Photos}
+	  <img src="{PhotoURL-500}"
+		{block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
+		{block:Caption}alt="{Caption}"{/block:caption} />
+	{/block:Photos}
+  </div>
+
+
+	</div>
+	{block:Caption}
+	<div class="photoset-caption">{Caption}</div>
+	{/block:Caption}
+	{/block:Photoset}
+
+	{block:Video}
+	<div class="video-holder">
+	{VideoEmbed-700}
+	</div>
+	{block:Caption}
+	<div class="video-caption">{Caption}</div>
+	{/block:Caption}
+	{/block:Video}
+
+	{block:Answer} 
+	<div class="a">
+	{Answer}
+	</div>
+	{/block:Answer}
+
+	<footer class="row">
+	  <div class="col-sm-4 post-footer-date">
+		{block:Date}
+		<a href="{Permalink}"><i class="fa fa-calendar-o"></i> {DayOfMonth} {Month} {Year}</a>
+		{/block:Date}
+	  </div>
+	  <div class="col-sm-8 post-footer-meta">
+		<ul>
+		  {block:ContentSource}
+		  <li><a href="{SourceURL}"> <i class="fa fa-share"></i> Via {SourceTitle}</a></li>
+		  {/block:ContentSource}
+		  {block:IfShowPostTags} 
+			{block:HasTags} 
+				{block:Tags}
+				 <li><a href="{TagURL}"> <i class="fa fa-tag"></i> {Tag}</a></li>
+				{/block:Tags} 
+			{/block:HasTags} 
+		  {/block:IfShowPostTags}
+		</ul>
+	  </div>
+	</footer>
+
+  </article>
+
+
+{/block:Posts}
+</div>
+
+<footer class="container">
+
+
+
+  {block:IfNotInfiniteScroll}
+	{block:Pagination}
+	<ul class="pagination">
+	  {block:PreviousPage}
+	  <li><a class="back-next" href="{PreviousPage}"><i class="fa fa-arrow-left"></i> More Recently</a></li>
+	  {/block:PreviousPage}
+
+	  {block:NextPage}
+	  <li><a class="back-next" href="{NextPage}">Previously <i class="fa fa-arrow-right"></i></a></li>
+	  {/block:NextPage}
+	</ul>
+	{/block:Pagination}
+
+	{block:PermalinkPagination}
+	<ul class="pagination">
+	  {block:PreviousPost}
+	  <li><a class="back-next" href="{PreviousPost}"><i class="fa fa-arrow-left"></i> Previous</a></li>
+	  {/block:PreviousPost}
+
+	  {block:NextPost}
+	  <li><a class="back-next" href="{NextPost}">Next <i class="fa fa-arrow-right"></i></a></li>
+	  {/block:NextPost}
+	</ul>
+	{/block:PermalinkPagination}
+
+  {/block:IfNotInfiniteScroll}
+
+<!--
+  <a class="ad" href="http://luma-labs.com">
+  <div class="luma">
+	  <img src="http://cdn.shopify.com/s/files/1/0031/7022/t/7/assets/luma-b-200.png" width="100" height="25"><br>
+	  Luma Labs—which I’m a partner in—helps to pay the bills around here. If you’re looking to upgrade your camera strap, please do take a look.
+	</div>
+  </a>
+  -->
+
+  {block:IfFooterAdLink}
+  {block:IfFooterAdContent}
+  <a class="ad" href="{text:Footer Ad Link}">
+	<div class="adblock">{text:Footer Ad Content}</div>
+  </a>
+  {/block:IfFooterAdContent}
+  {/block:IfFooterAdLink}
+
+
+
+<!--
+  <nav>
+	<ul>
+	  <li><a href="http://duncandavidson.com"><i class="nav-icon icon-home"></i> <span class="nav-label">Home</span></a></li>
+	  {block:IfShowArchiveNavigationLink}
+		<li><a href="/archive"><i class="nav-icon icon-archive"></i> <span class="nav-label">Archive</span></i></a></li>
+	  {/block:IfShowArchiveNavigationLink}
+	  {block:AskEnabled} 
+		<li><a href="/ask"><i class="nav-icon icon-question"></i> <span class="nav-label">{AskLabel}</span></a></li>
+	  {/block:AskEnabled}
+	  {block:SubmissionsEnabled} 
+		<li><a href="/submit">{SubmitLabel}</a></li>
+	  {/block:SubmissionsEnabled}
+	  <li><a href="mailto:james@duncandavidson.com?Subject=jdd.io%20feedback"><i class="nav-icon icon-envelope"></i> <span class="nav-label">Email</span></a></li>
+	</ul>
+
+	<ul>
+	  <li><a href="http://twitter.com/duncan"><i class="nav-icon icon-twitter"></i></a></li>
+	  <li><a href="http://facebook.com/duncan.davidson"><i class="nav-icon icon-facebook"></i></a></li>
+	  <li><a href="https://plus.google.com/103831472718153637437?rel=author"><i class="nav-icon icon-google-plus"></i></a></li>
+	  <li><a href="http://github.com/duncan"><i class="nav-icon icon-github"></i></a></li> -->
+	  <!-- <li><a href="http://linkedin.com/duncandavidson"><i class="nav-icon icon-linkedin"></i></a></li> -->
+	  <!--<li><a href="http://pinterest.com/duncandavidson"><i class="nav-icon icon-pinterest"></i></a></li> -->
+	  <!-- <li><a href="http://foursquare.com/duncandavidson"><i class="nav-icon icon-foursquare"></i></a></li> -->
+	  <!--
+	  <li><a href="http://instagram.com/duncandavidson"><i class="nav-icon icon-instagram"></i></a></li>
+	  <li><a href="http://www.youtube.com/user/x180"><i class="nav-icon icon-youtube"></i></a></li>
+	 </ul>
+  </nav>
+  -->
+
+  {block:IfShowCopyright}
+  <div class="copyright">
+	<p>&copy;{CopyrightYears}</p>
+  </div>
+  {/block:IfShowCopyright}
+  <div class="colophon">
+	Powered by <a href="http://tumblr.com">Tumblr</a> &bull; IO theme by <a href="http://jdd.io">James Duncan Davidson</a><br>Built with <a href="http://getbootstrap.com">Bootstrap</a> + <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>
+  </div>
+</footer>
+
+<script src="//static.tumblr.com/myrscmz/LUBmvvclq/bootstrap.min.js"></script>
+
+<!-- Photoset box stuff -->
+
+
+
+<script src="//static.tumblr.com/myrscmz/1nqmvcr1z/jquery.photoset-grid.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.3/jquery.colorbox-min.js"></script>
+
+
+
+		<script type="text/javascript">
+
+		// Photoset Grid Basic
+		$('.photoset-grid').photosetGrid({
+			  gutter: '5px',
+			  highresLinks: false,
+				onComplete: function(){
+						$('.photoset-grid-basic').attr('style', '');
+				}
+		});
+
+		// Photoset Grid Custom
+		$('.photoset-grid').photosetGrid({
+				gutter: '5px',
+				layout: '21',
+				highresLinks: false,
+				rel: 'print-gallery',
+
+				onComplete: function(){
+						$('.photoset-grid-custom').attr('style', '');
+				}
+		});
+
+		//$('.photoset-grid-alt').photosetGrid();
+		$('.photoset-grid-lightbox').photosetGrid({
+				highresLinks: true,
+				rel: 'withhearts-gallery',
+				gutter: '2px',
+
+				onComplete: function(){
+						$('.photoset-grid-lightbox').attr('style', '');
+						$('.photoset-grid-lightbox a').colorbox({
+								photo: true,
+								scalePhotos: true,
+				maxHeight:'90%',
+				maxWidth:'90%'
+						});
+				}
+		});
+		</script>
+
+
+{block:IfGoogleAnalyticsId}
+<!-- Analytics -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{text:Google Analytics Id}', '{text:Google Analytics Domain}');
+  ga('send', 'pageview');
+
+</script>
+
+{/block:IfGoogleAnalyticsId}
+
+{block:IfGaugesAnalytics}
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+	var t   = document.createElement('script');
+	t.type  = 'text/javascript';
+	t.async = true;
+	t.id    = 'gauges-tracker';
+	t.setAttribute('data-site-id', '{text:Gauges Analytics}');
+	t.src = '//secure.gaug.es/track.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t, s);
+  })();
+</script>
+{/block:IfGaugesAnalytics}
+
+
+</body>
+
+</html>
