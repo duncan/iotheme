@@ -72,6 +72,8 @@
 	<meta name="text:Body Font" content="">
 	<meta name="text:Strong Font" content="Avenir-Medium, HelveticaNeue-Medium">
 
+	<meta name="text:Searchpath URL" content="">
+
 	<meta name='text:Google Analytics Id' content=''>
 	<meta name='text:Google Analytics Domain' content=''>
 	<meta name='text:Gauges Analytics' content=''>
@@ -390,6 +392,11 @@ body>header .search {
 
 }
 
+#search {
+	border: 0;
+	border-bottom: 1px solid;
+}
+
 @media (min-width: 768px) {
 	body>header .search {
 		text-align: right;
@@ -419,7 +426,7 @@ body>header .social-links li {
   }
   body>header .portrait {
   float: left; 
-  margin-right: 12px
+  margin-right: 30px
   }
   body>header .logo {
   max-width: 740px;
@@ -793,13 +800,15 @@ article.post>header h1.q {
   </nav>
   {/block:IfShowNavigation}
   
+  
+
   <div class="search">
 	  <form action="/search" method="get">
-	  		<input type="text" name="q" value="{SearchQuery}"/>
-	  		<input type="submit" value="Search"/>
+		  <i class="nav-icon fa fa-search fa-fw fa-lg"></i>
+	  		<input id="search" type="text" name="q" value="{SearchQuery}" placeholder="search">
 	  </form>
 	</div>
-
+	
 
   <div class="logo">
   <a href="/"><img class="portrait img-circle" src="{PortraitURL-128}" width="96" height="96"></a>
@@ -1032,6 +1041,10 @@ article.post>header h1.q {
   Powered by <a href="http://tumblr.com">Tumblr</a> &bull; IO theme by <a href="http://jdd.io">James Duncan Davidson</a><br>Built with <a href="http://getbootstrap.com">Bootstrap</a> + <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>
   </div>
 </footer>
+
+{block:IfSearchpathURL}
+<script type="text/javascript" src="{text:Searchpath URL}&id=search"></script>
+{/block:IfSearchpathURL}
 
 <!-- Photoset box stuff -->
 
