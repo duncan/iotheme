@@ -783,6 +783,13 @@ article.post>header h1.q {
   </ul>
   </nav>
   {/block:IfShowNavigation}
+  
+  <div class="search">
+	  <form action="/search" method="get">
+	  		<input type="text" name="q" value="{SearchQuery}"/>
+	  		<input type="submit" value="Search"/>
+	  </form>
+	</div>
 
 
   <div class="logo">
