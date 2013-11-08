@@ -48,7 +48,6 @@
 	<meta name="if:Infinite Scroll" content="0">
 	
 	<meta name="color:Header Background" content="#fff">
-	<meta name="color:Title Text" content="#333333">
 	<meta name="color:Header Text" content="#333333">
 	<meta name="color:Header Link" content="#333333">
 	<meta name="color:Header Social" content="#333333">
@@ -286,6 +285,7 @@ strong {
 /* PAGE HEADER */
 
 body>header {
+	color: {color:Header Text};
   background: {color:Header Background};
   padding-top: 35px;
   padding-bottom: 25px;
@@ -325,7 +325,7 @@ body>header li:first-child {
   margin-left: 0px;   
 }
 
-body>heaer li:last-child {
+body>header li:last-child {
   margin-left: 0px;
 }
 
@@ -335,11 +335,11 @@ body>header h1 {
 }
 
 body>header h1 a {
-  color: {color:Title Text};
+  color: {color:Header Text};
 }
 
 body>header h1 a:hover {
-  color: {color:Title Text};
+  color: {color:Header Text};
   text-decoration: none;
 }
 
@@ -391,8 +391,12 @@ body>header .search {
 
 #search {
 	border: 0;
-	border-bottom: 1px solid;
+	border-bottom: 1px solid {color:Header Text};
 	margin-bottom: 15px;
+}
+
+#search>form>input:focus{
+	outline: 0;
 }
 
 @media (min-width: 768px) {
