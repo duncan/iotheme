@@ -291,13 +291,12 @@ body>header {
   padding-top: 35px;
   padding-bottom: 25px;
   {block:IfPosterImage}
-  background:  url('{image:Poster}');
+  background: url('{image:Poster}');
   {/block:IfPosterImage}
 }
 
 body>header div.container {
   max-width: 530px;
-
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -344,19 +343,8 @@ body>header h1 a:hover {
   text-decoration: none;
 }
 
-.nav-icon {
-  font-size: 1.3em;
-}
-.nav-label {
-  display: none;
-}
-
 @media (min-width: 768px) {
   .nav-icon {
-  font-size: 1em;
-  }
-  .nav-label {
-  display: inline-block;
   }
 }
 
@@ -453,7 +441,6 @@ body>header .social-links li {
     clear: both;
     float: right;
     text-align: right;
-    font-size: 1.3em;
   }
 
   body>header .social-links li:last-child {
@@ -795,17 +782,7 @@ article.post>header h1.q {
 
 <header>
   <div class="container">
-  {block:IfShowNavigation}
-  <nav>
-  <ul>
-    <li><a href="http://duncandavidson.com"><i class="nav-icon icon-home"></i> <span class="nav-label">Home</span></a></li>
-    <li><a href="/rss"><i class="nav-icon icon-rss"></i> <span class="nav-label">Feed</span></a></li>
-  </ul>
-  </nav>
-  {/block:IfShowNavigation}
   
-  
-
   <div class="search">
 	  <form action="/search" method="get">
 		  <i class="nav-icon fa fa-search fa-fw fa-lg"></i>
@@ -813,7 +790,6 @@ article.post>header h1.q {
 	  </form>
 	</div>
 	
-
   <div class="logo">
   <a href="/"><img class="portrait img-circle" src="{PortraitURL-128}" width="96" height="96"></a>
   <h1><a href="/">{Title}</a></h1>
@@ -822,6 +798,18 @@ article.post>header h1.q {
   <p class="blog-description">{Description}</p>
   {/block:IfShowDescription}
 
+	{block:IfShowNavigation}
+  <ul class="page-links">
+  	{block:HasPages}
+  			{block:Pages}
+  			<li>
+  					<a href="{URL}">{Label}</a>
+  			</li>
+  			{/block:Pages}
+  	{/block:HasPages}
+  </ul>
+
+  {/block:IfShowNavigation}
 
   <ul class="social-links">
     {block:IfContactURL}
@@ -836,7 +824,6 @@ article.post>header h1.q {
 {block:IfGooglePlusID}
 <li><a href="http://plus.google.com/{text:Google Plus ID}?rel=author"><i class="nav-icon fa fa-google-plus-square fa-fw fa-lg"></i></a></li>
 {/block:IfGooglePlusID}
-
   </ul>
 
   </div> 
