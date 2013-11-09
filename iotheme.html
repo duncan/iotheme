@@ -786,7 +786,13 @@ article.post>header h1.q {
   <div class="search">
 	  <form action="/search" method="get">
 		  <i class="nav-icon fa fa-search fa-fw fa-lg"></i>
-	  		<input id="search" type="text" name="q" value="{SearchQuery}" placeholder="search">
+		  {block:IfSearchpathURL}
+		  <input id="search" type="text" name="q" value="{SearchQuery}" placeholder="search">
+		  {/block:IfSearchpathURL}
+		  {block:IfNotSearchpathURL}
+		  <input id="search" type="text" name="q" value="{SearchQuery}" placeholder="search tags">
+		  {/block:IfNotSearchpathURL}
+	  		
 	  </form>
 	</div>
 	
