@@ -16,8 +16,9 @@ Copy iotheme.html into the Custom HTML section of your Tumblr’s admin. If that
 ## Blogs Using Bootstrap Tumblr Theme
 
 * [jdd.io](http://jdd.io)
+* [connormcclure.me](http://conormcclure.me)
 
 
 ## License & Notes
 
-©2013 [James Duncan Davidson](http://duncandavidson.com)
+©2013 [James Duncan Davidson](http://duncandavidson.com). Licensed under the [MIT license](http://opensource.org/licenses/MIT)
