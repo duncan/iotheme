@@ -744,6 +744,23 @@ article.post>header h1.q {
 
 }
 
+/* AUDIO POSTS */
+
+
+.audio-holder  {
+	max-width: 530px;
+	margin-left: auto; 
+	margin-right: auto;
+}
+
+.audio-holder iframe,
+.audio-holder object,
+.audio-holder embed {
+	width: 100%;
+
+}
+
+
 /* QUOTE POSTS */
 
 .quote-short, .quote-medium, .quote-long, .quote-source {
@@ -867,6 +884,27 @@ article.post>header h1.q {
   {block:Text}
   {Body}
   {/block:Text}
+  
+  {block:Link}
+  {block:Description}
+  {Description}
+  {/block:Description}
+  {/block:Link}
+  
+  {block:Chat}
+	  {block:Title}
+	  		<header><h1><a href="{Permalink}" {Target}>{Title}</a></h1></header>
+	  	{/block:Title}
+	  	{block:Lines}
+	  			<p class="{Alt} user_{UserNumber}">
+	  					{block:Label}
+	  						<strong class="label">{Label}</strong>
+	  					{/block:Label}
+	  	
+	  					{Line}
+	  			</p>
+	  	{/block:Lines}
+  {/block:Chat}
 
   {block:Quote}
   <div class="quote-{Length}">{Quote}</div>
@@ -874,12 +912,6 @@ article.post>header h1.q {
   <div class="quote-source">— {Source}</div>
   {/block:Source} 
   {/block:Quote}
-
-  {block:Link}
-  {block:Description}
-  {Description}
-  {/block:Description}
-  {/block:Link}
 
   {block:Photo}
   <div class="photo-holder">
@@ -918,6 +950,14 @@ article.post>header h1.q {
   {/block:Caption}
   {/block:Video}
 
+	{block:Audio}
+  <div class="audio-holder">
+    {block:AudioPlayer}{AudioPlayerWhite}{/block:AudioPlayer}
+  </div>
+  {block:Caption}
+  <div class="audio-caption">{Caption}</div>
+  {/block:Caption}
+  {/block:Audio}
 
   <footer class="row">
     <div class="col-sm-4 post-footer-date">
