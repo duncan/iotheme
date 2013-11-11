@@ -844,7 +844,10 @@ article.post>header h1.q {
   <header>
   <h1 class="q">{Question}</h1> 
   </header>
-  {/block:Answer}
+  	<div class="a">
+  	{Answer}
+  	</div>
+  	{/block:Answer}
 
   {block:Text}
   {Body}
@@ -884,9 +887,8 @@ article.post>header h1.q {
     {block:Caption}alt="{Caption}"{/block:caption} />
   {/block:Photos}
   </div>
-
-
   </div>
+  
   {block:Caption}
   <div class="photoset-caption">{Caption}</div>
   {/block:Caption}
@@ -901,11 +903,6 @@ article.post>header h1.q {
   {/block:Caption}
   {/block:Video}
 
-  {block:Answer} 
-  <div class="a">
-  {Answer}
-  </div>
-  {/block:Answer}
 
   <footer class="row">
     <div class="col-sm-4 post-footer-date">
