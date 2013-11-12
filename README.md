@@ -11,7 +11,12 @@ Copy iotheme.html into the Custom HTML section of your Tumblr’s admin. If that
 
 ## Roadmap
 
+## Thanks and Contributions
 
+Thanks to the following fine people for contributions and ideas!
+
+* [Mark Dorison](https://github.com/markdorison)
+* [Martin Irwin](https://github.com/martindesu)
 
 ## Blogs Using Bootstrap Tumblr Theme
 
